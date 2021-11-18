@@ -41,25 +41,17 @@ class MainActivity : AppCompatActivity() {
                         "peso" -> { binding.textView8.text = param?.getString("data").toString() }
                         "altura" -> { binding.textView9.text = param?.getString("data").toString() }
                     }
-                    //binding.textView9.text = param?.getString("data1").toString()
-                    //binding.textView8.text = param?.getString("data").toString()
-
-                    //val texto = param?.getString("Dados")
-                    //Toast.makeText(this, texto, Toast.LENGTH_SHORT).show()
                 }
 
                 RESULT_CANCELED -> {
                     Toast.makeText(this, "Cancelou", Toast.LENGTH_SHORT).show()
                 }
-
             }
         }
 
         binding.apply {
             textView8.text = pesoPessoa.toString()
             textView9.text = alturaPessoa.toString()
-
-
         }
 
         binding.button.setOnClickListener{
@@ -92,7 +84,6 @@ class MainActivity : AppCompatActivity() {
             if(result > 40F){
                 binding.textView10?.text = "Obesidade Grau III (mórbida)"
             }
-
         }
 
         binding.button2.setOnClickListener{
