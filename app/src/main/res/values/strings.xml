@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CalculadoraIMC</string>
+    <string name="Alterar_Peso">Alterar Peso</string>
+    <string name="Alterar_Altura">Alterar Altura</string>
+    <string name="Calcular">Calcular IMC</string>
+    <string name="calculadora_imc">Calculadora IMC</string>
+    <string name="peso">Peso</string>
+    <string name="altura">Altura</string>
+    <string name="textview">TextView</string>
+    <string name="kg">KG</string>
+    <string name="cm">CM</string>
+    <string name="_70">70</string>
+    <string name="Alterar">Alterar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="resultado">Resultado</string>
+</resources>
