@@ -25,6 +25,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        val preferences = getSharedPreferences("preferences", MODE_PRIVATE)
+        binding.textView.text = preferences.getString("imc", "0")
+        binding.textView8.text = preferences.getString("peso", "0.0")
+        binding.textView9.text = preferences.getString("altura", "0.0")
+        binding.textView10?.text = preferences.getString("info", "0")
+
         val ResultadoRequisicao = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
             when(it.resultCode){
 
@@ -111,12 +117,29 @@ class MainActivity : AppCompatActivity() {
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        binding.textView.text = savedInstanceState.getString("valor_text")
+        binding.textView8.setText(savedInstanceState.getString("peso"))
+        binding.textView9.setText(savedInstanceState.getString("altura"))
+        binding.textView10?.setText(savedInstanceState.getString("info"))
+        binding.textView.setText(savedInstanceState.getString("imc"))
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString("valor_textview", binding.textView.text.toString())
+        outState.putString("peso", binding.textView8.text.toString())
+        outState.putString("altura", binding.textView9.text.toString())
+        outState.putString("info", binding.textView10?.text.toString())
+        outState.putString("imc", binding.textView.text.toString())
+    }
+
+    override fun onStop() {
+        super.onStop()
+        val preferences = getSharedPreferences("preferences", MODE_PRIVATE)
+        val editer = preferences.edit()
+        editer.putString("peso", binding.textView8.text.toString())
+        editer.putString("altura", binding.textView9.text.toString())
+        editer.putString("info", binding.textView10?.text.toString())
+        editer.putString("imc", binding.textView.text.toString())
+        editer.apply()
     }
 
 }
